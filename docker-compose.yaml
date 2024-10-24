@@ -8,6 +8,8 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ./src:/var/www/laravel
+    networks:
+      - my
     depends_on:
       - mysql
       - php
@@ -17,6 +19,8 @@ services:
       dockerfile: php.Dockerfile
     volumes:
       - ./src:/var/www/laravel
+    networks:
+      - my
   mysql:
     image: mysql:8.0
     ports:
@@ -25,13 +29,15 @@ services:
       - env/mysql.env
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - my
 
   composer:
     build:
       context: dockerfiles
       dockerfile: composer.Dockerfile
     volumes:
-      - ./db_data:/var/www/laravel
+      - db_data:/var/www/laravel
   artisan:
     build:
       context: dockerfiles
@@ -42,3 +48,7 @@ services:
 
 volumes:
   db_data:
+
+networks:
+  my:
+    driver: bridge
