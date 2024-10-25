@@ -19,5 +19,5 @@ docker-compose up -d
 
 ''' Проверяем контейнер с port-forwarding on host пиз файла docker-compose.yml  '''
 curl http://127.0.0.1:8088
-'''https://github.com/antonffeksdnu/laravel-compose-docker/blob/main/2024-10-25%20105748.png '''
+![Screnshot](https://github.com/antonffeksdnu/laravel-compose-docker/blob/main/2024-10-25%20105748.png)
 
