@@ -11,7 +11,7 @@ services:
   php:
     build:
       context: dockerfiles
-      dockerfile: php.dockerfile
+      dockerfile: php.Dockerfile
     volumes:
       - ./src:/var/www/laravel
   mysql:
